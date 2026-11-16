@@ -1,7 +1,7 @@
 // The app's name and header links, in one place: the header, the footer and every page title read them.
 export const site = {
-  name: 'New Totalum app',
-  description: 'Built with Totalum',
+  name: 'Café Mirlo',
+  description: 'Café de especialidad en Madrid: espressos, filtrados, desayunos y meriendas en un rincón luminoso. Horario, cómo llegar y contacto.',
   /** The logo image's URL (the user's file): the header, the footer and the browser icon show it. Empty: the name alone. */
   logo: '',
   /**
@@ -28,10 +28,27 @@ export const site = {
   /** The owner's and staff's addresses for admin pages: one counts only once its account verified the e-mail (`isAdmin`, `@/lib/admin`). */
   admins: [] as string[],
   /** Links everyone sees (landing sections, public pages). */
-  nav: [] as { href: string; label: string }[],
+  nav: [
+    { href: '/', label: 'Inicio' },
+    { href: '/#donde-estamos', label: 'Dónde estamos' },
+    { href: '/#contacto', label: 'Contacto' },
+    { href: '/privacidad', label: 'Privacidad' },
+  ] as { href: string; label: string }[],
   /** Links only signed-in users see (dashboard, lists, admin). */
   appNav: [{ href: '/account', label: 'Account' }] as { href: string; label: string }[],
 };
 
 /** The header and footer appear once the app has something to put in them: links or accounts (a one-page "hello" has neither). */
 export const hasShell = () => site.accounts || site.nav.length > 0;
+
+/** Practical info shown on the page and in the footer. Example data: the owner replaces it with the real one. */
+export const place = {
+  address: 'Calle del Olivar, 14',
+  city: '28012 Madrid',
+  hours: [
+    { days: 'Lunes a viernes', time: '8:00 – 20:00' },
+    { days: 'Sábados', time: '9:00 – 21:00' },
+    { days: 'Domingos y festivos', time: '9:00 – 15:00' },
+  ],
+  mapsUrl: 'https://maps.google.com/?q=Calle+del+Olivar+14+28012+Madrid',
+};
