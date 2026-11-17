@@ -155,15 +155,13 @@ export default function Home() {
           </h2>
           <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {offer.map((o, i) => (
-              <article className={`${o.offset} ${i === 2 ? 'sm:col-span-2 lg:col-span-1' : ''}`} key={o.title}>
-                <div
-                  className={`overflow-hidden rounded-lg shadow-md shadow-brand/10 ${i === 2 ? 'aspect-[4/5] sm:aspect-[16/9] lg:aspect-[4/5]' : 'aspect-[4/5]'}`}
-                >
-                  <img alt={o.alt} className="size-full object-cover" loading="lazy" src={o.photo} />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-brand">{o.title}</h3>
-                <p className="mt-2 max-w-sm text-base leading-7 text-ink/80">{o.text}</p>
-              </article>
+              <article key={o.title}>
+  <div className="overflow-hidden rounded-lg shadow-md shadow-brand/10 aspect-[4/5]">
+    <img alt={o.alt} className="size-full object-cover" loading="lazy" src={o.photo} />
+  </div>
+  <h3 className="mt-5 font-display text-lg font-semibold text-brand">{o.title}</h3>
+  <p className="mt-2 max-w-sm text-base leading-7 text-ink/80">{o.text}</p>
+</article>
             ))}
           </div>
         </div>
