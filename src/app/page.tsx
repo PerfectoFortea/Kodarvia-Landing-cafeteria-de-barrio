@@ -1,5 +1,24 @@
 import { ContactForm } from '@/components/contact-form';
+import type { Metadata } from 'next';
+
 import { place, site } from '@/lib/site';
+
+export const metadata: Metadata = {
+  title: { absolute: 'Café Mirlo | Café de especialidad en Madrid (Embajadores)' },
+};
+
+const reviews = [
+  { name: 'Lucía M.', role: 'Vecina de Embajadores', text: 'El mejor flat white que he probado en Madrid. Se nota que el grano se elige con cariño y que nadie tiene prisa.' },
+  { name: 'Andrés R.', role: 'Teletrabaja desde el local', text: 'Wifi estable, buena luz y un ambiente tranquilo. Vengo tres mañanas a la semana y siempre me siento como en casa.' },
+  { name: 'Marta y Pablo', role: 'Clientes habituales', text: 'Café de especialidad, bollería recién hecha y un trato cercano. Nuestro rincón favorito para las tardes de domingo.' },
+];
+
+const faqs = [
+  { q: '¿Son dog-friendly?', a: 'Sí. Tu perro es bienvenido en el local y siempre tiene un cuenco de agua fresca.' },
+  { q: '¿Hay WiFi para teletrabajar?', a: 'Sí, wifi gratuito y enchufes en la mesa grande y junto a la ventana. Pide la clave en la barra.' },
+  { q: '¿Opciones veganas?', a: 'Sí. Tenemos bebidas vegetales (avena, soja y almendra) y tostadas y dulces sin ingredientes de origen animal.' },
+  { q: '¿Opciones sin gluten?', a: 'Sí, tenemos algunas opciones sin gluten. Avísanos de tu alergia o intolerancia al pedir y te indicamos qué puedes tomar.' },
+];
 
 const img = (id: string, w = 1600) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`;
 
@@ -7,8 +26,8 @@ const photos = {
   hero: img('1760175445000-0e01e193d1cd'),
   room: img('1728761390316-935ffeb3fbcc', 900),
   cup: img('1550731358-491ded4af838', 800),
-  barista: img('1579265898841-79c7890d69cf', 800),
-  light: img('1593443320739-77f74939d0da', 800),
+  remote: img('1751199199992-b32cefa81c72', 800),
+  neighbour: img('1758519290803-f2b25952a5d7', 800),
   corner: img('1564849744694-348ecd00c279', 1000),
 };
 
@@ -23,17 +42,17 @@ const offer = [
     offset: '',
   },
   {
-    title: 'Leche, espuma y paciencia',
-    text: 'Flat white, cortado, capuchino. Vaporizamos despacio y servimos en taza de cerámica, siempre.',
-    photo: photos.barista,
-    alt: 'Barista vertiendo leche sobre un café en una taza blanca',
+    title: 'Teletrabaja con calma',
+    text: 'Wifi, enchufes y una mesa grande junto a la ventana. Un flat white en taza de cerámica y todo el tiempo que necesites.',
+    photo: photos.remote,
+    alt: 'Personas trabajando con sus portátiles en una cafetería acogedora',
     offset: 'lg:mt-12',
   },
   {
-    title: 'Desayunos y meriendas',
-    text: 'Tostadas, bollería de obrador y algo dulce de la casa para acompañar el café, de la mañana a la tarde.',
-    photo: photos.light,
-    alt: 'Taza de café con espuma sobre una mesa de madera iluminada por el sol',
+    title: 'El local del barrio',
+    text: 'Desayunos, meriendas y charlas sin prisa. Tostadas, bollería de obrador y algo dulce de la casa, de la mañana a la tarde.',
+    photo: photos.neighbour,
+    alt: 'Un vecino sonriendo mientras trabaja con su portátil en la cafetería',
     offset: '',
   },
 ];
@@ -56,7 +75,7 @@ export default function Home() {
         <div className={`${container} text-center`}>
           <p className="font-display text-sm font-medium text-accent-deep">Café de especialidad en Madrid</p>
           <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold tracking-tight text-balance text-brand sm:text-6xl">
-            El café de cada día, hecho con calma.
+            Tu café de especialidad en Madrid, hecho con calma
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-ink/80 sm:text-lg sm:leading-8">
             {site.name} es una cafetería pequeña y luminosa donde el grano se elige con cuidado y la mesa grande
@@ -67,7 +86,7 @@ export default function Home() {
               className="flex h-14 w-full items-center justify-center rounded-lg bg-brand px-8 text-base font-semibold text-cream shadow-sm transition-colors hover:bg-ink focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-cream focus-visible:outline-none sm:w-auto"
               href="#contacto"
             >
-              Escríbenos
+              Haz tu encargo o reserva
             </a>
             <a
               className="flex h-14 w-full items-center justify-center rounded-lg px-6 text-base font-medium text-brand underline decoration-accent decoration-2 underline-offset-8 transition-colors hover:text-accent-deep sm:w-auto"
@@ -214,6 +233,53 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section className="bg-oat py-16 sm:py-24">
+        <div className={container}>
+          <h2 className="max-w-xl font-display text-2xl font-semibold tracking-tight text-balance text-brand sm:text-4xl">
+            Lo que dicen de nosotros
+          </h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {reviews.map((r) => (
+              <figure className="flex flex-col rounded-lg border border-accent/20 bg-cream p-6 shadow-sm" key={r.name}>
+                <div aria-label="5 estrellas de 5" className="flex gap-1 text-accent" role="img">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <svg aria-hidden className="size-5" fill="currentColor" key={i} viewBox="0 0 20 20">
+                      <path d="M10 1.5l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 7.8l6-.8z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-base leading-7 text-ink/90">“{r.text}”</blockquote>
+                <figcaption className="mt-5 text-sm">
+                  <span className="font-display font-semibold text-brand">{r.name}</span>
+                  <span className="text-ink/70"> · {r.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Preguntas frecuentes */}
+      <section className="py-16 sm:py-24" id="preguntas">
+        <div className={`${container} max-w-3xl`}>
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-brand sm:text-4xl">
+            Preguntas frecuentes
+          </h2>
+          <div className="mt-8 divide-y divide-oat border-y border-oat">
+            {faqs.map((f) => (
+              <details className="group py-4" key={f.q}>
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-semibold text-brand sm:text-lg">
+                  {f.q}
+                  <span aria-hidden className="text-xl text-accent transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-2 max-w-prose text-base leading-7 text-ink/85">{f.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
