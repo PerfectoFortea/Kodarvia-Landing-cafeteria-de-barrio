@@ -27,7 +27,7 @@ const photos = {
   room: img('1728761390316-935ffeb3fbcc', 900),
   cup: img('1550731358-491ded4af838', 800),
   remote: img('1744144497216-d22317d68161', 800),
-  neighbour: img('1758519290803-f2b25952a5d7', 800),
+  neighbour: img('1651607826814-f25e667a9338', 800),
   corner: img('1564849744694-348ecd00c279', 1000),
 };
 
