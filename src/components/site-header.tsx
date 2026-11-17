@@ -10,7 +10,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-20 border-b border-oat bg-cream/90 backdrop-blur">
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link
-          className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-brand focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none"
+          className="flex shrink-0 items-center gap-2 whitespace-nowrap font-display text-lg font-semibold tracking-tight text-brand focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none"
           href="/"
         >
           {site.logo ? <img alt="" className="h-9 w-auto" src={site.logo} /> : null}

@@ -6,12 +6,12 @@ import { useState } from 'react';
 export function MobileNav({ links }: { links: { href: string; label: string }[] }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="md:hidden">
+    <div className="shrink-0 md:hidden">
       <button
         aria-controls="menu-movil"
         aria-expanded={open}
         aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-        className="flex size-11 items-center justify-center rounded-lg text-brand transition-colors hover:bg-oat focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none"
+        className="flex size-11 shrink-0 items-center whitespace-nowrap justify-center rounded-lg text-brand transition-colors hover:bg-oat focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none"
         onClick={() => setOpen((o) => !o)}
         type="button"
       >
