@@ -42,8 +42,8 @@ const offer = [
     offset: '',
   },
   {
-    title: 'Teletrabaja con calma',
-    text: 'Wifi, enchufes y una mesa grande junto a la ventana. Un flat white en taza de cerámica y todo el tiempo que necesites.',
+    title: 'Momentos dulces',
+    text: 'Disfruta de la mejor repostería artesana en compañía. El lugar perfecto para compartir un postre increíble y desconectar del mundo.',
     photo: photos.remote,
     alt: 'Personas trabajando con sus portátiles en una cafetería acogedora',
     offset: 'lg:mt-12',
